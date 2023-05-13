@@ -1,0 +1,9 @@
+{
+  "name": "version-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "project-file-updater.js",
+  "dependencies": {
+    "xml2js": "^0.5.0"
+  }
+}

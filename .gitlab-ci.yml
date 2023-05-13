@@ -1,0 +1,15 @@
+image: maven:3.6.3-jdk-8
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --update-snapshots"
+  MAVEN_BASE_COMMAND: "mvn -s ci_settings.xml"
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - $MAVEN_BASE_COMMAND deploy:deploy-file -DpomFile="parent-pom.pom" -Dfile="./parent-pom.pom" -DrepositoryId=gitlab-maven -Durl="https://gitlab.com/api/v4/projects/20465608/packages/maven"
+  environment:
+    name: master
